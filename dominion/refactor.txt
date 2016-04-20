@@ -1,0 +1,4 @@
+I extracted the village, smithy, embargo, outpost, and council room cards.
+To do this, I created new functions, checked which variables the original implementation used,
+and passed these into the new functions. I more or less copy and pasted the code from the
+original card effect into the new functions.

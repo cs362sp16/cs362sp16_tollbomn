@@ -688,28 +688,8 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 			
     case council_room:
-      //+4 Cards
-      for (i = 0; i < 4; i++)
-	{
-	  drawCard(currentPlayer, state);
-	}
 			
-      //+1 Buy
-      state->numBuys++;
-			
-      //Each other player draws a card
-      for (i = 0; i < state->numPlayers; i++)
-	{
-	  if ( i != currentPlayer )
-	    {
-	      drawCard(i, state);
-	    }
-	}
-			
-      //put played card in played card pile
-      discardCard(handPos, currentPlayer, state, 0);
-			
-      return 0;
+      return r_councilroom(currentPlayer, handPos, state);
 			
     case feast:
       //gain card with cost up to 5
@@ -829,26 +809,12 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 		
     case smithy:
-      //+3 Cards
-      for (i = 0; i < 3; i++)
-	{
-	  drawCard(currentPlayer, state);
-	}
-			
-      //discard card from hand
-      discardCard(handPos, currentPlayer, state, 0);
-      return 0;
+      
+      return r_smithy(currentPlayer, handPos, state);
 		
     case village:
-      //+1 Card
-      drawCard(currentPlayer, state);
-			
-      //+2 Actions
-      state->numActions = state->numActions + 2;
-			
-      //discard played card from hand
-      discardCard(handPos, currentPlayer, state, 0);
-      return 0;
+     
+      return r_village(currentPlayer, handPos, state);
 		
     case baron:
       state->numBuys++;//Increase buys by 1!
@@ -1139,29 +1105,12 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 
 		
     case embargo: 
-      //+2 Coins
-      state->coins = state->coins + 2;
-			
-      //see if selected pile is in play
-      if ( state->supplyCount[choice1] == -1 )
-	{
-	  return -1;
-	}
-			
-      //add embargo token to selected supply pile
-      state->embargoTokens[choice1]++;
-			
-      //trash card
-      discardCard(handPos, currentPlayer, state, 1);		
-      return 0;
+      		
+      return r_embargo(currentPlayer, handPos, state, choice1);
 		
     case outpost:
-      //set outpost flag
-      state->outpostPlayed++;
-			
-      //discard card
-      discardCard(handPos, currentPlayer, state, 0);
-      return 0;
+      
+      return r_outpost(currentPlayer, handPos, state);
 		
     case salvager:
       //+1 buy
@@ -1327,7 +1276,77 @@ int updateCoins(int player, struct gameState *state, int bonus)
 
   return 0;
 }
+int r_smithy(int player, int handspot, struct gameState *state) {
+	//+3 Cards
+	for (i = 0; i < 3; i++)
+	{
+		drawCard(player, state);
+	}
 
+	//discard card from hand
+	discardCard(handspot, player, state, 0);
+	return 0;
+}
+int r_village(int player, int handspot, struct gameState *state) {
+	//+1 Card
+	drawCard(player, state);
+
+	//+2 Actions
+	state->numActions = state->numActions + 2;
+
+	//discard played card from hand
+	discardCard(handspot, player, state, 0);
+	return 0;
+}
+int r_councilroom(int player, int handspot, struct gameState *state) {
+	//+4 Cards
+	for (i = 0; i < 4; i++)
+	{
+		drawCard(player, state);
+	}
+
+	//+1 Buy
+	state->numBuys++;
+
+	//Each other player draws a card
+	for (i = 0; i < state->numPlayers; i++)
+	{
+		if (i != player)
+		{
+			drawCard(i, state);
+		}
+	}
+
+	//put played card in played card pile
+	discardCard(handspot, player, state, 1);
+
+	return 0;
+}
+int r_embargo(int player, int handspot, struct gameState *state, int choice) {
+	//+2 Coins
+	state->coins = state->coins + 2;
+
+	//see if selected pile is in play
+	if (state->supplyCount[choice] == -1)
+	{
+		return -1;
+	}
+
+	//add embargo token to selected supply pile
+	state->embargoTokens[choice]++;
+
+	//trash card
+	discardCard(handspot, player, state, 0);
+	return 0;
+}
+int r_outpost(int player, int handspot, struct gameState *state) {
+	//set outpost flag
+	state->outpostPlayed++;
+
+	//discard card
+	discardCard(handspot, player, state, 0);
+	return 0;
+}
 
 //end of dominion.c
 
