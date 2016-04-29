@@ -1,0 +1,6 @@
+My first two card tests (council room and smithy) failed on checking that the handcount was
+correct. This could indicate drawCard is not properly updating the handcounts.
+Card test 4 (salvager) also failed, indicating that the discarded card and the handcount are,
+again, not working. This could indicate an issue with the playcard function, which I used
+to activate the cards. I may try direct calls to card effect in the future to see if it fixes
+the error.

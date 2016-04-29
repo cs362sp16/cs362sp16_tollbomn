@@ -1278,6 +1278,7 @@ int updateCoins(int player, struct gameState *state, int bonus)
 }
 int r_smithy(int player, int handspot, struct gameState *state) {
 	//+3 Cards
+	int i;
 	for (i = 0; i < 3; i++)
 	{
 		drawCard(player, state);
@@ -1300,6 +1301,7 @@ int r_village(int player, int handspot, struct gameState *state) {
 }
 int r_councilroom(int player, int handspot, struct gameState *state) {
 	//+4 Cards
+	int i;
 	for (i = 0; i < 4; i++)
 	{
 		drawCard(player, state);

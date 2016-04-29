@@ -1,0 +1,14 @@
+Unit test 1: 0.36%
+Unit test 2: 0.90%
+Unit test 3: 17.20%
+Unit test 4: 17.56%
+Card test 1: 19.35%
+Card test 2: 19.35%
+Card test 3: 19.35%
+Card test 4: 19.35%
+
+This would indicate the tests of the cards are not extending the test coverage. This may
+indicate playcard() is not calling card effect, or perhaps my tests did not set it up
+properly. I will try a better testing effort to see if I can get it to work in the future.
+I will likely initate the whole game before I set the hand and the deck rather than just
+making sets, as all the unit tests seemed to work quite well.

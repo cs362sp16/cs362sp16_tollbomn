@@ -1,0 +1,64 @@
+TEST SUCCESSFULLY COMPLETED
+
+GCOV AFTER 1 TEST\n
+File 'dominion.c'
+Lines executed:19.35% of 558
+Creating 'dominion.c.gcov'
+
+
+TEST SUCCESSFULLY COMPLETED
+\n 
+GCOV AFTER 2 TESTS\n
+File 'dominion.c'
+Lines executed:19.35% of 558
+Creating 'dominion.c.gcov'
+
+
+TEST SUCCESSFULLY COMPLETED
+\n 
+GCOV AFTER 3 TESTS\n
+File 'dominion.c'
+Lines executed:19.35% of 558
+Creating 'dominion.c.gcov'
+
+
+TEST SUCCESSFULLY COMPLETED
+\n 
+GCOV AFTER 4 TESTS\n
+File 'dominion.c'
+Lines executed:19.35% of 558
+Creating 'dominion.c.gcov'
+
+
+FAILED ASSERTION.
+\n 
+GCOV AFTER 5 TESTS\n
+File 'dominion.c'
+Lines executed:19.35% of 558
+Creating 'dominion.c.gcov'
+
+
+FAILED ASSERTION.
+\n 
+GCOV AFTER 6 TESTS\n
+File 'dominion.c'
+Lines executed:19.35% of 558
+Creating 'dominion.c.gcov'
+
+
+TEST SUCCESSFUL.
+\n 
+GCOV AFTER 7 TESTS\n
+File 'dominion.c'
+Lines executed:19.35% of 558
+Creating 'dominion.c.gcov'
+
+
+FAILED ASSERTION.
+FAILED ASSERTION.
+\n 
+GCOV AFTER 8 TESTS\n
+File 'dominion.c'
+Lines executed:19.35% of 558
+Creating 'dominion.c.gcov'
+
