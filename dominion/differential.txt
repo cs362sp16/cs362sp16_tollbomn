@@ -1,0 +1,11 @@
+The two dominions work very similarly, until some of the kingdom cards start to include different implementations of reworked
+cards. If the way the card was done is different, then the results will be different. Namely, during assignment 1, we were
+supposed to introduce two bugs and not document them in the functions we refactored. I introduced bugs in council room and
+embargo such that they placed themselves in the wrong pile (trash for council room, discard for embargo) when they were played.
+(They are supposed to be the other way around). This lead to games with those cards going differently if the random AI picked
+those cards. For this reason this is not really an ideal case for differential testing, as neither of our dominions truly
+'worked' perfectly. While both work to some extent, these differences make them run differently.
+
+Measuring code coverage on both results, it ranged from 60-70% depending on the cards picked and the actions taken, for sets
+of 20 games or so. The coverage varied between trials, some of this due to the AI picking or not picking certain cards. For
+certain core functions, the coverage was at or close to 100% (things like intializing, drawing, shuffling, etc).

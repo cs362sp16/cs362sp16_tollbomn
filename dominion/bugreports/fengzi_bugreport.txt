@@ -1,0 +1,22 @@
+There is an infinite loop in the adventurer card (f_adventurer).
+Consider a case where the deck consists entirely of cards that are not treasures (or less than 2 treasures).
+Example Hand/deck/discard contents:
+Hand
+[0]: adventurer
+[1]: copper
+[2]: copper
+[3]: copper
+[4]: copper
+
+Deck
+[0]: estate
+[1]: village
+
+Discard
+[0]: estate
+[1]: village
+[2]: duchy
+[3]: seahag
+[4]: smithy
+
+Having no treasure in the deck or discard will make the while loop go on indefinitely, as drawntresure will always be 0.

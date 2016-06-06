@@ -1,0 +1,44 @@
+From my own testing, I found a bug in the adventurer function when I was conducting random
+testing on it. It would occasionally stall and would require to program to be [control + c]
+to end. However, most of the test cases worked. After looking at the code itself, I 
+conculded that the error was most likely caused by the contents of the deck and discard
+piles themselves not being able to meet the criteria to end the loop. The loop required
+two of copper, silver, or gold to be drawn. But what if there were less than two of those
+cards left in the combined deck and discard? This seemed to be the case, so I constructed 
+a unit test to check the card itself. The test did not pass, and was stuck in an infinte
+loop. The contents of the arrays (deck, hand, discard) were as follows:
+Hand
+[0]: adventurer
+[1]: copper
+[2]: copper
+[3]: copper
+[4]: copper
+
+Deck
+[0]: estate
+[1]: village
+
+Discard
+[0]: estate
+[1]: village
+[2]: duchy
+[3]: seahag
+[4]: smithy
+
+Using the debugger in Visual Studio, I was able to step through the case to prove that it
+was an infinte loop.
+
+While I have not fixed this bug in my code, I have a proposed solution: Add an exit criteria
+when both the deck and the discard are empty (the temporary hand contains all the 
+remaining cards) and drawntreasure is less than 2. Then the adventurer would have gone
+through the entire deck.
+
+Several of Agans' principles applied to my process. Namely:
+1. Understand the system. - By looking at the code for the adventurer card I was able to
+determine what was likely causing the failures I was seeing.
+2. Make it fail. - By using my knowledge of the failure, I was able to construct what I
+thought would be a failing case.
+3. Quit thinking and look. - By looking at the code, I was able to determine the likely
+cause of failure.
+9. If you didn't fix it, it ain't fixed. - Though I didn't actually fix the bug, it isn't
+likely to occur in a typical game scenario.

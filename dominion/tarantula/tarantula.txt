@@ -1,0 +1,9 @@
+I tested tarantula on my occasionally failing random adventurer test code. Once I made a slight modification such that the 
+deck would never have enough treasure, and ran 50 times. Using the formula, it was determined that the while loop
+(while drawntreasure < 2) was the most suspicious, which agreed with my earlier conclusions. Localizing the bug in adventurer
+to the loop solidified my own conclusions that the bug was there with another tool. Although there is little purpose in using
+a debugging tool like this to locate a bug you already know exists (and where it is), the power of it can be clearly seen. This
+tool could clearly be very useful in debugging a large program, especially if you were not the only one to work on it. 
+Debugging probably takes me personally 2-3 times as much time as actually writing code, and a significant part of that is
+looking for the bug. Tools like tarantula can assist the programmer in finding his errors sooner, and have a better understanding
+of what could be causing the program to fail.
